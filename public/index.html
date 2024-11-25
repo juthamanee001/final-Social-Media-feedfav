@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Welcome Section -->
+    <div class="welcome-container">
+      <h1>Feed fav</h1>
+      <p>Come in and try it out.<br>Look at my website.</p>
+      <p>Do you have an account?</p>
+      <a href="login.html" class="button">Login</a>
+    </div>
+
+    <!-- Register Section -->
+    <div class="form-container">
+      <form id="register-form" action="/api/register" method="POST">
+        <h2>Register</h2>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required />
+
+        <label for="confirm-password">Retype Password</label>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Retype your password" required />
+
+        <button type="submit">Register</button>
+        <p id="error-message" style="color: red; display: none;"></p>
+        <p id="success-message" style="color: green; display: none;">Registration successful! Redirecting to login...</p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('register-form');
+    const successMessage = document.getElementById('success-message');
+    const errorMessage = document.getElementById('error-message');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();  // Prevent form from submitting the traditional way
+
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+
+      // Simple validation for matching passwords
+      if (password !== confirmPassword) {
+        errorMessage.style.display = 'block';
+        errorMessage.textContent = "Passwords do not match!";
+        return;
+      }
+
+      // Clear error message if everything is fine
+      errorMessage.style.display = 'none';
+
+      // Create data object to send to the server
+      const data = {
+        username: username,
+        email: email,
+        password: password
+      };
+
+      // Send data to the server using Fetch API
+      fetch('/api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+        .then(response => response.json())  // Assuming server returns a JSON response
+        .then(result => {
+          if (result.success) {
+            successMessage.style.display = 'block';  // Show success message
+            setTimeout(() => {
+              window.location.href = '/login';  // Redirect to login after 2 seconds
+            }, 2000);
+          } else {
+            errorMessage.style.display = 'block';  // Show error message from the server
+            errorMessage.textContent = result.message || 'Something went wrong!';
+          }
+        })
+        .catch(error => {
+          errorMessage.style.display = 'block';
+          errorMessage.textContent = 'Error registering user. Please try again.';
+          console.error('Error:', error);
+        });
+    });
+  </script>
+</body>
+</html>

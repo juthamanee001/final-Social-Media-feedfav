@@ -1,0 +1,30 @@
+CREATE TABLE `users` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(50) NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+CREATE TABLE `posts` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  `text` TEXT NOT NULL,
+  `timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `likes` INT NOT NULL DEFAULT 0,
+  `comments` JSON NOT NULL,
+  `tab` ENUM('forYou', 'following') NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+);
+CREATE TABLE `likes` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `post_id` INT NOT NULL,
+  `user_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_like` (`post_id`, `user_id`), -- ผู้ใช้ 1 คนไลค์โพสต์เดียวได้ครั้งเดียว
+  FOREIGN KEY (`post_id`) REFERENCES `posts`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+);
+
+SELECT id, username, email, profile_picture FROM users WHERE id = 1;
+

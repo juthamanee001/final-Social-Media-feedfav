@@ -1,0 +1,22 @@
+{
+    "name": "login-register-app",
+    "version": "1.0.0",
+    "description": "A simple login and register app using Node.js",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "bcrypt": "^5.1.1",
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.20.3",
+        "cookie-parser": "^1.4.7",
+        "express": "^4.21.1",
+        "express-session": "^1.18.1",
+        "multer": "^1.4.5-lts.1",
+        "mysql2": "^3.11.4"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}

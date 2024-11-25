@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedfav - Profile</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h1>Feedfav</h1>
+      <nav>
+        <a href="/home" id="homeLink">Home</a>
+        <a href="#" id="profileLink" class="active">Profile</a>
+        <a href="#" id="logoutLink">Logout</a>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="profile-container">
+        <div class="profile-pic" id="displayPic">
+          <img src="profile_pics/default-avatar.png" alt="Profile Picture" />
+          <form id="profilePicForm" enctype="multipart/form-data">
+            <input type="file" id="fileField" name="profilePic" hidden />
+          </form>
+          <button id="changePicButton">Change Profile Picture</button>
+        </div>
+        <h2 id="username">Loading...</h2>
+        <p id="email">Loading...</p>
+      </div><div class="profile-posts-container">
+        <h3>Your Posts</h3>
+        <div id="profilePosts" class="feed2"></div>
+      </div>      
+    </div>
+  </div>
+
+  <script src="profile.js"></script>
+</body>
+</html>

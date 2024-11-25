@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Welcome Section -->
+    <div class="welcome-container">
+      <h1>Feed fav</h1>
+      <p>Come in and try it out.<br>Look at my website.</p>
+      <p>Do you have an account?</p>
+      <a href="index.html" class="button">Register</a>
+    </div>
+
+    <!-- Login Section -->
+    <div class="form-container">
+      <form action="/api/login" method="POST"> <!-- เปลี่ยนจาก /login เป็น /api/login -->
+        <h2>Login</h2>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required />
+
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

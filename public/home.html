@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedfav - Full Page</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h1>Feedfav</h1>
+      <nav>
+        <a href="#" id="homeLink">Home</a>
+        <a href="/profile" id="profileLink">Profile</a> <!-- คงไว้ปุ่มโปรไฟล์อันเดียว -->
+        <a href="#" id="logoutLink">Logout</a> <!-- ปุ่ม Logout -->
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Post Section -->
+      <div class="post-section">
+        <textarea id="postText" placeholder="What's on your mind?"></textarea>
+        <button id="postButton">Post</button>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab active" id="forYouTab">For you</button>
+      </div>
+
+      <!-- Feed Section -->
+      <div class="feed" id="feed"></div>
+    </div>
+  </div>
+
+  <!-- เพิ่ม JavaScript Logout -->
+  <script>
+    const logoutLink = document.getElementById('logoutLink');
+    
+    logoutLink.addEventListener('click', async (e) => {
+      e.preventDefault(); // ป้องกันการทำงานของลิงก์เริ่มต้น
+      try {
+        const response = await fetch('/api/logout', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        if (response.ok) {
+          window.location.href = '/login'; // เปลี่ยนไปหน้า login
+        } else {
+          alert('Logout failed.'); // แสดงข้อความเมื่อ Logout ล้มเหลว
+        }
+      } catch (error) {
+        console.error('Error during logout:', error);
+        alert('An error occurred while logging out.');
+      }
+    });
+  </script>
+
+  <!-- รวมไฟล์ Script หลัก -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,375 @@
+/* General styles */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #00274d; /* Background color */
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Container */
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 250px; /* กำหนดความกว้างของ Sidebar */
+  background-color: #00274d; /* พื้นหลังสีน้ำเงินเข้ม */
+  color: white; /* ข้อความสีขาว */
+  display: flex; /* ใช้ Flexbox */
+  flex-direction: column; /* จัดเรียงในแนวตั้ง */
+  align-items: center; /* จัดให้อยู่กึ่งกลางแนวแกน X */
+  padding: 20px; /* เพิ่ม Padding ภายใน */
+}
+
+.sidebar h1 {
+  font-size: 24px; /* ขนาดตัวอักษร */
+  margin-bottom: 30px; /* เว้นระยะห่างด้านล่าง */
+}
+
+.sidebar nav {
+  display: flex; /* ใช้ Flexbox */
+  flex-direction: column; /* จัดเรียงในแนวตั้ง */
+  gap: 15px; /* ระยะห่างระหว่างแต่ละรายการ */
+  width: 100%; /* ให้กว้างเต็ม Sidebar */
+}
+
+.sidebar nav a {
+  text-decoration: none; /* ลบเส้นขีดใต้ */
+  color: white; /* ข้อความสีขาว */
+  font-size: 18px; /* ขนาดตัวอักษร */
+  padding: 10px 20px; /* เพิ่ม Padding ให้ปุ่มใหญ่ขึ้น */
+  text-align: center; /* จัดให้อยู่กึ่งกลางข้อความ */
+  border-radius: 8px; /* มุมมน */
+  background-color: #003366; /* สีพื้นหลัง */
+  transition: 0.3s; /* เพิ่มเอฟเฟกต์เวลา Hover */
+}
+
+.sidebar nav a:hover {
+  background-color: #d89a6d; /* สีพื้นหลังเปลี่ยนตอน Hover */
+  color: white; /* สีข้อความตอน Hover */
+}
+
+/* Main content */
+.main-content {
+  flex-grow: 1;
+  background-color: #f6ebe2; /* Main content background */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Post Section */
+.post-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.post-section textarea {
+  flex-grow: 1;
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.post-section button {
+  background-color: #d89a6d;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.post-section button:hover {
+  background-color: #bf7f4d;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.tab.active {
+  background-color: #d89a6d;
+  color: white;
+}
+
+/* Feed Section */
+.feed {
+  margin-top: 20px;
+  overflow-y: auto; /* เพิ่ม overflow ให้สามารถเลื่อนลงมาได้ */
+  max-height: 70vh; /* หรือกำหนดความสูงให้เหมาะสม */
+}
+
+.feed .post {
+  background-color: #f9f9f9;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-top: 10px; /* เพิ่มระยะห่างจากโพสต์ก่อนหน้า */
+}
+
+.post p {
+  margin: 0;
+}
+
+.post .actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.post button {
+  border: none;
+  background-color: #e6e6e6;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.post button:hover {
+  background-color: #d89a6d;
+  color: white;
+}
+
+/* Specific styles for Like, Comment, and Bookmark */
+.post .like {
+  margin-right: 15px;
+}
+
+.post .bookmark {
+  margin-left: auto;
+}
+
+/* Welcome Section */
+.welcome-container {
+  flex: 1;
+  padding: 40px;
+  background-color: #d7bfa8;
+  text-align: center;
+}
+
+.welcome-container h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #2e2e2e;
+}
+
+.welcome-container p {
+  font-size: 14px;
+  margin: 15px 0;
+  color: #333;
+}
+
+.welcome-container .button {
+  background-color: #ffffff;
+  color: #2e2e2e;
+  text-decoration: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  display: inline-block;
+  transition: 0.3s;
+  border: 1px solid #d89a6d;
+}
+
+.welcome-container .button:hover {
+  background-color: #d89a6d;
+  color: white;
+}
+
+/* Login Section */
+.form-container {
+  flex: 1;
+  padding: 30px;
+  background-color: #fff2e1;
+  box-sizing: border-box;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2e2e2e;
+  margin-bottom: 15px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6d6d6d;
+}
+
+form input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+form button {
+  background-color: #d89a6d;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background-color: #bf7f4d;
+}
+
+
+
+
+.profile-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #d89a6d;
+}
+
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+button#changePicButton {
+  margin-top: 10px;
+  background-color: #d89a6d;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button#changePicButton:hover {
+  background-color: #bf7f4d;
+}
+
+h2, p {
+  font-family: "Poppins", sans-serif;
+  margin: 10px 0;
+}
+
+
+/* Profile Posts Section */
+.profile-posts-container {
+  margin: 30px auto; /* จัดให้อยู่ตรงกลาง */
+  padding: 20px;
+  background-color: #fff2e1;
+  border-radius: 8px;
+  width: 60%; /* กำหนดความกว้างของโพสต์ */
+  height: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left; /* จัดข้อความให้ชิดซ้าย */
+}
+
+.profile-posts-container h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.feed .post {
+  background-color: #f9f9f9;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.feed2 {
+  margin-top: 20px;
+  overflow-y: auto; /* เพิ่ม overflow ให้สามารถเลื่อนลงมาได้ */
+  max-height: 200px; /* หรือกำหนดความสูงให้เหมาะสม */
+}
+
+.feed2 .post {
+  background-color: #f9f9f9;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-top: 10px; /* เพิ่มระยะห่างจากโพสต์ก่อนหน้า */
+}
+.feed2 .post {
+  background-color: #f9f9f9;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.post .actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.post button {
+  border: none;
+  background-color: #e6e6e6;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.post button:hover {
+  background-color: #d89a6d;
+  color: white;
+}
+
+.comments-section {
+  margin-top: 10px;
+  padding-left: 10px;
+  border-left: 3px solid #ddd;
+  font-size: 14px;
+  color: #555;
+}
+
